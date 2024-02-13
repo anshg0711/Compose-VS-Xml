@@ -1,38 +1,18 @@
 package com.example.poc.view.compose
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.poc.repository.api.ContactApi
-import com.example.poc.repository.api.RetrofitHelper
-import com.example.poc.model.Address
-import com.example.poc.model.Contact
-import com.example.poc.model.Coordinates
-import com.example.poc.model.CreditCard
-import com.example.poc.model.Employment
-import com.example.poc.model.Subscription
 import com.example.poc.viewModel.ContactViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
- fun ComposeFirstPage(contactViewModel : ContactViewModel) {
+fun ComposeFirstPage(contactViewModel: ContactViewModel) {
 
 
-    val list =contactViewModel.list.collectAsState()
+    val list = contactViewModel.list.collectAsState()
 
 
 //    val testContact = Contact(
@@ -77,12 +57,7 @@ import kotlinx.coroutines.runBlocking
 //    )
 
 
-
-
-
-
-
-    LazyColumn() {
+    LazyColumn {
         itemsIndexed(list.value,
             key = { index, contact -> contact.id }
         ) { index,

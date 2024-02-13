@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">POC</string>
+    <string name="ComposeFragmentLifeCycle">ComposeFragmentLifeCycle</string>
+    <string name="onResume">onResume</string>
+    <string name="onCreate">onCreate</string>
+    <string name="onStart">onStart</string>
+    <string name="onStop">onStop</string>
+    <string name="onPause">onPause</string>
+    <string name="onDestroy">onDestroy</string>
+    <string name="onDestroyView">onDestroyView</string>
+    <string name="onDetach">onDetach</string>
+    <string name="onAttach">onAttach</string>
+    <string name="onViewCreated">onViewCreated</string>
+    <string name="onCreateView">onCreateView</string>
+    <string name="XMLFragmentLifeCycle">XMLFragmentLifeCycle</string>
 </resources>

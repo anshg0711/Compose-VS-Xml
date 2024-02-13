@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Contact(
     @PrimaryKey(autoGenerate = true)
-    val unique:Int,
+    val unique: Int,
     @Embedded
     val address: Address,
     val avatar: String,

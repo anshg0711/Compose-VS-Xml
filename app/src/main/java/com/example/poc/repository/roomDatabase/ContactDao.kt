@@ -11,8 +11,7 @@ interface ContactDao {
     suspend fun addContact(contact: Contact)
 
 
-
     @Query("Select * from contact")
-    suspend fun getContact():List<Contact>
+    suspend fun getContact(): List<Contact>
 
 }

@@ -53,7 +53,15 @@ android {
 }
 
 dependencies {
+    val fragment_version = "1.6.2"
 
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.11.0")
+    // Java language implementation
+    implementation("androidx.fragment:fragment:$fragment_version")
+    // Kotlin
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
     val dagger_version = "2.40"
     implementation("com.google.dagger:dagger:$dagger_version")
     kapt("com.google.dagger:dagger-compiler:$dagger_version")

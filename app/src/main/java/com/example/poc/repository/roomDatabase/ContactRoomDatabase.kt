@@ -9,23 +9,26 @@ import com.example.poc.model.Contact
 import com.example.poc.repository.roomDatabase.ContactDao
 
 
-@Database(entities = [ Contact::class ], version = 1)
-abstract class ContactRoomDatabase: RoomDatabase(){
+@Database(entities = [Contact::class], version = 1)
+abstract class ContactRoomDatabase : RoomDatabase() {
 
     fun printDatabasePath(context: Context) {
         val dbPath: String = context.getDatabasePath("contact_DB").absolutePath
         Log.d("Database Path", dbPath)
     }
+
     abstract fun contactDao(): ContactDao
-    suspend fun getContacts():List<Contact>{
+    suspend fun getContacts(): List<Contact> {
         return contactDao().getContact()
     }
-    suspend fun addContact(contact:Contact){
+
+    suspend fun addContact(contact: Contact) {
         contactDao().addContact(contact)
     }
-    companion object{
+
+    companion object {
         @Volatile
-        private var instance: ContactRoomDatabase? =null
+        private var instance: ContactRoomDatabase? = null
         fun getInstance(context: Context): ContactRoomDatabase {
             synchronized(this) {
                 if (instance == null) {
