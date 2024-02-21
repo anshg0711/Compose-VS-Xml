@@ -55,3 +55,15 @@ d
 4app/src/test/java/com/example/poc/ExampleUnitTest.kt,2/9/290d8b5c9cb087fda09bd2ed8ac3c4597aa4cb82
 s
 Capp/src/androidTest/java/com/example/poc/ExampleInstrumentedTest.kt,7/5/7529e3ae7dd0893de4c55c3763895a7ae781d93e
+x
+Hbenchmark/src/main/java/com/example/benchmark/ExampleStartupBenchmark.kt,c/5/c5390b20cda05512e023cf151bf4af3bdfed13b7
+V
+&benchmark/src/main/AndroidManifest.xml,7/8/786ff61b501f07c91ef4fea216a28f5dab04974f
+G
+app/benchmark-rules.pro,c/0/c0f639645cbc01f92f600a18d51e0290b47d16ad
+J
+benchmark/build.gradle.kts,2/8/2857a7492ff611b3123d5242ee7a654042d65d13
+F
+app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
+c
+3app/src/main/java/com/example/poc/ui/theme/Theme.kt,3/2/32a223b7784efd31a3069a269d8d9ea1dd251eb7

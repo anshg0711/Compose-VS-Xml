@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
     private lateinit var xmlFragment: XMLFragment
     private var currentFragment="Compose"
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.title = "Lazy Column"
         super.onCreate(savedInstanceState)
         composeFragment = supportFragmentManager.findFragmentByTag("ComposeFragment") as? ComposeFragment
             ?: ComposeFragment()
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
                     if(currentFragment=="XML")
                     showFragment(composeFragment)
                     currentFragment="Compose"
-                    supportActionBar?.title = "Lazy Coloumn"
+                    supportActionBar?.title = "Lazy Column"
                     true
                 }
 

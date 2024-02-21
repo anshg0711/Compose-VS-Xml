@@ -7,6 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.poc.model.Contact
 import com.example.poc.repository.roomDatabase.ContactDao
+import kotlinx.coroutines.flow.Flow
 
 
 @Database(entities = [Contact::class], version = 1)
@@ -18,12 +19,15 @@ abstract class ContactRoomDatabase : RoomDatabase() {
     }
 
     abstract fun contactDao(): ContactDao
-    suspend fun getContacts(): List<Contact> {
+     fun getContacts(): Flow<List<Contact>> {
         return contactDao().getContact()
     }
 
     suspend fun addContact(contact: Contact) {
         contactDao().addContact(contact)
+    }
+    suspend fun removeContact(contact: Contact){
+        contactDao().removeContact(contact)
     }
 
     companion object {

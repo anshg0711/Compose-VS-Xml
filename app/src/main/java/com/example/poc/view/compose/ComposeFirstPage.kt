@@ -1,73 +1,73 @@
 package com.example.poc.view.compose
 
 import android.annotation.SuppressLint
+import android.util.Log
+
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
+import androidx.compose.ui.unit.dp
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import com.example.poc.viewModel.ContactViewModel
 
+@OptIn(ExperimentalComposeUiApi::class)
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun ComposeFirstPage(contactViewModel: ContactViewModel) {
-
-
+    val listState = rememberLazyListState()
     val list = contactViewModel.list.collectAsState()
+    val cardModifier: Modifier = remember {
+        Modifier
+            .fillMaxSize()
+            .padding(vertical = 5.dp)
+    }
+    val imageModifier: Modifier = remember {
+        Modifier
+            .size(80.dp)
+
+    }
+    val rowModifier : Modifier= remember{
+        Modifier
+            .padding(vertical = 35.dp)
+    }
+    val rowModifier1 : Modifier= remember{
+        Modifier.padding(horizontal = 10.dp)
+    }
+    val rowModifier2 : Modifier= remember{
+        Modifier.padding(10.dp)
+    }
+    val rowModifier3 : Modifier= remember{
+        Modifier
+            .padding(vertical = 35.dp, horizontal = 40.dp)
+    }
 
 
-//    val testContact = Contact(
-//        address = Address(
-//
-//            city = "Test City",
-//            coordinates = Coordinates(
-//                lat = 123.456,
-//                lng = 456.789
-//            ),
-//            country = "Test Country",
-//            state = "Test State",
-//            street_address = "123 Test Street",
-//            street_name = "Test Street",
-//            zip_code = "12345"
-//        ),
-//        avatar = "https://robohash.org/harumdistinctiodolore.png?size=300x300&set=set1",
-//        credit_card = CreditCard(
-//            cc_number = "1234 5678 9012 3456"
-//        ),
-//        date_of_birth = "2000-01-01",
-//        email = "test@example.com",
-//        employment = Employment(
-//            key_skill = "Test Skill",
-//            title = "Test Title"
-//        ),
-//        first_name = "Test",
-//        gender = "Male",
-//        id = 1,
-//        last_name = "Contact",
-//        password = "password",
-//        phone_number = "123-456-7890",
-//        social_insurance_number = "123-456-789",
-//        subscription = Subscription(
-//            payment_method = "Credit Card",
-//            plan = "Premium",
-//            status = "Active",
-//            term = "Monthly"
-//        ),
-//        uid = "abcdef123456",
-//        username = "testuser"
-//    )
 
-
-    LazyColumn {
+    LazyColumn(state = listState, modifier = Modifier.semantics { testTagsAsResourceId=true }.testTag("lazy-column")) {
         itemsIndexed(list.value,
-            key = { index, contact -> contact.id }
+            key = { index, contact -> contact.hashCode() },
+            contentType = { index, item -> index % 4 }
         ) { index,
             contact ->
-            var rem = index % 4
-            if (rem == 0)
-                Layout1(contact = contact)
-            else if (rem == 1) Layout2(contact = contact)
-            else if (rem == 2) Layout3(contact = contact)
-            else Layout4(contact = contact)
+            when (index % 4) {
+                0 -> Layout1(contact = contact, imageModifier = imageModifier, cardModifier = cardModifier , rowModifier = rowModifier3)
+                1 -> Layout2(contact = contact, imageModifier = imageModifier, cardModifier = cardModifier ,rowModifier1 = rowModifier1, rowModifier = rowModifier2)
+                2 -> Layout3(contact = contact, imageModifier = imageModifier, cardModifier = cardModifier, rowModifier1 = rowModifier1, rowModifier = rowModifier2 )
+                else -> Layout4(contact = contact, imageModifier = imageModifier, cardModifier = cardModifier, rowModifier = rowModifier )
+            }
         }
     }
 }

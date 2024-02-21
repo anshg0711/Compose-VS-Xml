@@ -26,6 +26,13 @@ class ComposeFragment : Fragment() {
             getString(R.string.ComposeFragmentLifeCycle),
             "${getString(R.string.onCreateView)}   ${Thread.currentThread().name}"
         )
+        val contactRoomDatabase: ContactRoomDatabase =
+            ContactRoomDatabase.getInstance(requireContext())
+        contactViewModel =
+            ViewModelProvider(requireActivity(), ContactViewModelFactory(contactRoomDatabase)).get(
+                ContactViewModel::class.java
+            )
+
         return ComposeView(requireContext()).apply {
             setContent {
                 ComposeFirstPage(contactViewModel = contactViewModel)
@@ -39,12 +46,7 @@ class ComposeFragment : Fragment() {
             "${getString(R.string.onViewCreated)}   ${Thread.currentThread().name}"
         )
         super.onViewCreated(view, savedInstanceState)
-        val contactRoomDatabase: ContactRoomDatabase =
-            ContactRoomDatabase.getInstance(requireContext())
-        contactViewModel =
-            ViewModelProvider(requireActivity(), ContactViewModelFactory(contactRoomDatabase)).get(
-                ContactViewModel::class.java
-            )
+
     }
 
     override fun onAttach(context: Context) {

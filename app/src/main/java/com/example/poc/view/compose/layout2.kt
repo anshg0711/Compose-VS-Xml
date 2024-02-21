@@ -1,5 +1,6 @@
 package com.example.poc.view.compose
 
+import android.annotation.SuppressLint
 import android.widget.ImageView
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -21,19 +23,17 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.poc.model.Contact
 
 @Composable
-fun Layout2(contact: Contact) {
+fun Layout2(contact: Contact, @SuppressLint("ModifierParameter") cardModifier: Modifier, imageModifier: Modifier , rowModifier: Modifier, rowModifier1: Modifier ) {
+
     Card(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(vertical = 5.dp),
+        modifier = cardModifier,
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 15.dp)
     ) {
-        Row(Modifier.padding(10.dp)) {
+        Row(rowModifier) {
 
             AndroidView(
-                modifier = Modifier
-                    .size(80.dp)
+                modifier = imageModifier
                     .weight(.3F),
                 factory = { context ->
                     ImageView(context).apply {
@@ -47,7 +47,7 @@ fun Layout2(contact: Contact) {
                 }
             )
             Column(Modifier.weight(.5F)) {
-                Row(Modifier.padding(horizontal = 10.dp)) {
+                Row(rowModifier1) {
                     Text(
 
                         fontSize = 20.sp,
@@ -61,7 +61,7 @@ fun Layout2(contact: Contact) {
                     )
                 }
 
-                Row(Modifier.padding(horizontal = 10.dp)) {
+                Row(rowModifier1) {
                     Text(
 
                         fontSize = 20.sp,

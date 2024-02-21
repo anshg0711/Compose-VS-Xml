@@ -1,7 +1,9 @@
 package com.example.poc.model
 
+import androidx.compose.runtime.Immutable
 import androidx.room.Embedded
 
+@Immutable
 data class Address(
     val city: String,
     @Embedded

@@ -1,10 +1,12 @@
 package com.example.poc.model
 
+import androidx.compose.runtime.Immutable
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
+@Immutable
 data class Contact(
     @PrimaryKey(autoGenerate = true)
     val unique: Int,
