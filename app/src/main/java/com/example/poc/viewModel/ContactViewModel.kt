@@ -56,7 +56,7 @@ class ContactViewModel(private val contactRoomDatabase: ContactRoomDatabase) : V
             fetchContacts()
             contactRoomDatabase.getContacts()
                 .collectLatest { list ->
-                    _list.value=list
+                    _list.value = list
                 }
 
         }

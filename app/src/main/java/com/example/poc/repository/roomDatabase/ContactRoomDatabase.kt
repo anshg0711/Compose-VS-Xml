@@ -19,14 +19,15 @@ abstract class ContactRoomDatabase : RoomDatabase() {
     }
 
     abstract fun contactDao(): ContactDao
-     fun getContacts(): Flow<List<Contact>> {
+    fun getContacts(): Flow<List<Contact>> {
         return contactDao().getContact()
     }
 
     suspend fun addContact(contact: Contact) {
         contactDao().addContact(contact)
     }
-    suspend fun removeContact(contact: Contact){
+
+    suspend fun removeContact(contact: Contact) {
         contactDao().removeContact(contact)
     }
 

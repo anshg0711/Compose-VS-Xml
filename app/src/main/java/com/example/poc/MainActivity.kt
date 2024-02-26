@@ -1,6 +1,5 @@
 package com.example.poc
 
-import android.app.Application
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -11,12 +10,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity(R.layout.main_activity) {
     private lateinit var composeFragment: ComposeFragment
     private lateinit var xmlFragment: XMLFragment
-    private var currentFragment="Compose"
+    private var currentFragment = "Compose"
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.title = "Lazy Column"
         super.onCreate(savedInstanceState)
-        composeFragment = supportFragmentManager.findFragmentByTag("ComposeFragment") as? ComposeFragment
-            ?: ComposeFragment()
+        composeFragment =
+            supportFragmentManager.findFragmentByTag("ComposeFragment") as? ComposeFragment
+                ?: ComposeFragment()
         xmlFragment = supportFragmentManager.findFragmentByTag("XMLFragment") as? XMLFragment
             ?: XMLFragment()
         if (savedInstanceState == null) {
@@ -27,22 +27,22 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
                 .commit()
         }
         showFragment(composeFragment)
-       val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener {
 
             when (it.itemId) {
                 R.id.home -> {
-                    if(currentFragment=="XML")
-                    showFragment(composeFragment)
-                    currentFragment="Compose"
+                    if (currentFragment == "XML")
+                        showFragment(composeFragment)
+                    currentFragment = "Compose"
                     supportActionBar?.title = "Lazy Column"
                     true
                 }
 
                 else -> {
-                    if(currentFragment=="Compose")
-                    showFragment(xmlFragment)
-                    currentFragment="XML"
+                    if (currentFragment == "Compose")
+                        showFragment(xmlFragment)
+                    currentFragment = "XML"
                     supportActionBar?.title = "Recycler View"
                     true
                 }

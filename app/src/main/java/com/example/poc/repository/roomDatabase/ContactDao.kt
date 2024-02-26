@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface ContactDao {
     @Insert
     suspend fun addContact(contact: Contact)
+
     @Delete
     suspend fun removeContact(contact: Contact)
 
