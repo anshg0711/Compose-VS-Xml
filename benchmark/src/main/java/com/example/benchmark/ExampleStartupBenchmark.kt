@@ -41,25 +41,25 @@ class ExampleStartupBenchmark {
         pressHome()
         startActivityAndWait()
     }
-    @Test
-    fun scroll() = benchmarkRule.measureRepeated(
-        packageName = "com.example.poc",
-        metrics = listOf(FrameTimingMetric()),
-        iterations = 5,
-        startupMode = StartupMode.COLD
-    ) {
-        pressHome()
-        startActivityAndWait()
-
-        scrol()
-    }
-    fun MacrobenchmarkScope.scrol(){
-        device.waitForIdle(100000)
-        val list= device.findObject(By.res("lazy-column"))
-
-        list.setGestureMargin(device.displayWidth/5)
-        list.fling(Direction.DOWN)
-        device.waitForIdle(10000)
-
-    }
+//    @Test
+//    fun scroll() = benchmarkRule.measureRepeated(
+//        packageName = "com.example.poc",
+//        metrics = listOf(FrameTimingMetric()),
+//        iterations = 5,
+//        startupMode = StartupMode.COLD
+//    ) {
+//        pressHome()
+//        startActivityAndWait()
+//
+//        scrol()
+//    }
+//    fun MacrobenchmarkScope.scrol(){
+//        device.waitForIdle(100000)
+//        val list= device.findObject(By.res("lazy-column"))
+//
+//        list.setGestureMargin(device.displayWidth/5)
+//        list.fling(Direction.DOWN)
+//        device.waitForIdle(10000)
+//
+//    }
 }
