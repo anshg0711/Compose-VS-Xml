@@ -67,3 +67,5 @@ F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
 c
 3app/src/main/java/com/example/poc/ui/theme/Theme.kt,3/2/32a223b7784efd31a3069a269d8d9ea1dd251eb7
+c
+3app/src/main/java/com/example/poc/ui/theme/Color.kt,6/2/62460c566e3bcb198f46b189e3e2741f89b92514

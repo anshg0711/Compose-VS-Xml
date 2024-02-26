@@ -44,27 +44,7 @@ fun Layout2(contact: Contact, @SuppressLint("ModifierParameter") cardModifier: M
                 modifier = imageModifier.weight(.3F),
 
             )
-//            AndroidView(
-//                modifier = imageModifier
-//                    .weight(.3F),
-//                factory = { context ->
-//                    ImageView(context).apply {
-//                        scaleType = ImageView.ScaleType.FIT_END
-//                    }
-//                },
-//                update = { imageView ->
-//                    CoroutineScope(Dispatchers.IO).launch {
-//                        val bitmap = withContext(Dispatchers.IO) {
-//                            Glide.with(imageView)
-//                                .asBitmap()
-//                                .load(contact.avatar)
-//                                .submit()
-//                                .get()
-//                        }
-//                        imageView.setImageBitmap(bitmap)
-//                    }
-//                }
-//            )
+
             Column(Modifier.weight(.5F)) {
                 Row(rowModifier1) {
                     Text(

@@ -75,27 +75,6 @@ fun Layout3(contact: Contact, @SuppressLint("ModifierParameter") cardModifier: M
                 imageModel = avatarUrl,
                 modifier = imageModifier.weight(.3F)
             )
-//            AndroidView(
-//                modifier = imageModifier
-//                    .weight(.3F),
-//                factory = { context ->
-//                    ImageView(context).apply {
-//                        scaleType = ImageView.ScaleType.FIT_END
-//                    }
-//                },
-//                update = { imageView ->
-//                    CoroutineScope(Dispatchers.Main).launch {
-//                        val bitmap = withContext(Dispatchers.IO) {
-//                            Glide.with(imageView)
-//                                .asBitmap()
-//                                .load(contact.avatar)
-//                                .submit()
-//                                .get()
-//                        }
-//                        imageView.setImageBitmap(bitmap)
-//                    }
-//                }
-//            )
 
         }
     }

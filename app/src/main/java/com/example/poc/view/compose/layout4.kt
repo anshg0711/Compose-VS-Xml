@@ -42,27 +42,6 @@ fun Layout4(contact: Contact, @SuppressLint("ModifierParameter") cardModifier: M
     ) {
 
         Row {
-//            AndroidView(
-//                modifier = imageModifier
-//                    .weight(.3F),
-//                factory = { context ->
-//                    ImageView(context).apply {
-//                        scaleType = ImageView.ScaleType.FIT_END
-//                    }
-//                },
-//                update = { imageView ->
-//                    CoroutineScope(Dispatchers.Main).launch {
-//                        val bitmap = withContext(Dispatchers.IO) {
-//                            Glide.with(imageView)
-//                                .asBitmap()
-//                                .load(contact.avatar)
-//                                .submit()
-//                                .get()
-//                        }
-//                        imageView.setImageBitmap(bitmap)
-//                    }
-//                }
-//            )
             GlideImage(
                 imageModel = avatarUrl,
                 modifier = imageModifier.weight(.3F)
